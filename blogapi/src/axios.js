@@ -15,9 +15,7 @@ const axiosInstance = axios.create({
 })
 
 axiosInstance.interceptors.response.use(
-  (response) => {
-    return response
-  },
+  (response) => response,
   async function (error) {
     const originalRequest = error.config
 
@@ -61,9 +59,9 @@ axiosInstance.interceptors.response.use(
               localStorage.setItem('access_token', response.data.access)
               localStorage.setItem('refresh_token', response.data.refresh)
 
-              axiosInstance.defaults.headers['Authorization'] =
+              axiosInstance.defaults.headers.Authorization =
                 'JWT ' + response.data.access
-              originalRequest.headers['Authorization'] =
+              originalRequest.headers.Authorization =
                 'JWT ' + response.data.access
 
               return axiosInstance(originalRequest)
