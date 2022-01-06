@@ -4,6 +4,7 @@ npm start
 npm install react-router-dom@5
 npm install @material-ui/core
 npm install axios
+npm install @material-ui/icons
 npm install material-ui-search-bar
 
 Info:
